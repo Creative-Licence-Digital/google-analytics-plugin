@@ -41,6 +41,13 @@
   [self.commandDelegate sendPluginResult:result callbackId:[command callbackId]];
 }
 
+- (void) startSession:(CDVInvokedUrlCommand *)command
+{
+    // May return nil if a tracker has not yet been initialized.
+      // Start a new session with a screenView hit.
+      [[[GAI sharedInstance] defaultTracker] set:kGAISessionControl value:@"start"];
+
+}
 - (void) setDispatchInterval: (CDVInvokedUrlCommand*)command
 {
   CDVPluginResult* result = nil;

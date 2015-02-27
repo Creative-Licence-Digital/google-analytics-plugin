@@ -32,5 +32,6 @@
 - (void) set: (CDVInvokedUrlCommand*)command;
 - (void) send: (CDVInvokedUrlCommand*)command;
 - (void) close: (CDVInvokedUrlCommand*)command;
+- (void) startSession: (CDVInvokedUrlCommand*)command;
 
 @end
