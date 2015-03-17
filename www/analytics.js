@@ -123,11 +123,6 @@ Analytics.prototype = {
   LogLevel: LogLevel,
 
   
-  startSession: function (success, error) {
-    argscheck.checkArgs('FF', 'analytics.startSession', arguments);
-    exec(success, error, 'GoogleAnalytics', 'startSession', []);
-  },
-
   setTrackingId: function (trackingId, success, error) {
     argscheck.checkArgs('sFF', 'analytics.setTrackingId', arguments);
     exec(success, error, 'GoogleAnalytics', 'setTrackingId', [trackingId]);
