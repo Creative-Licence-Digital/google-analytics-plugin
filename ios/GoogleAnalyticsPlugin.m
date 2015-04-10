@@ -45,7 +45,7 @@
 {
     // May return nil if a tracker has not yet been initialized.
       // Start a new session with a screenView hit.
-      [[[GAI sharedInstance] defaultTracker] set:kGAISessionControl value:@"start"];
+      // [[[GAI sharedInstance] defaultTracker] set:kGAISessionControl value:@"start"];
 
 }
 - (void) setDispatchInterval: (CDVInvokedUrlCommand*)command
