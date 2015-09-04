@@ -41,6 +41,26 @@
   [self.commandDelegate sendPluginResult:result callbackId:[command callbackId]];
 }
 
+- (void) dispatch:(CDVInvokedUrlCommand *)command
+{
+    /*
+     kGAIDispatchNoData,
+     kGAIDispatchGood,
+     kGAIDispatchError
+    */
+    NSArray * resultStrings = @[@"NoData",@"Good",@"Error"];
+    [[GAI sharedInstance] dispatchWithCompletionHandler:^(GAIDispatchResult gaResult) {
+        NSString * resultString = resultStrings[gaResult];
+        CDVPluginResult * result;
+        if (gaResult == kGAIDispatchError) {
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:resultString];
+        } else {
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:resultString];
+        }
+        [self.commandDelegate sendPluginResult:result callbackId:[command callbackId]];
+    }];
+}
+
 - (void) startSession:(CDVInvokedUrlCommand *)command
 {
     // May return nil if a tracker has not yet been initialized.
