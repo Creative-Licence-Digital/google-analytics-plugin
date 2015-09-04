@@ -122,7 +122,6 @@ Analytics.prototype = {
 
   LogLevel: LogLevel,
 
-  
   setTrackingId: function (trackingId, success, error) {
     argscheck.checkArgs('sFF', 'analytics.setTrackingId', arguments);
     exec(success, error, 'GoogleAnalytics', 'setTrackingId', [trackingId]);
@@ -132,7 +131,11 @@ Analytics.prototype = {
        argscheck.checkArgs('FF', 'analytics.startSession', arguments);
        exec(success, error, 'GoogleAnalytics', 'startSession', []);
   },
-  
+
+  dispatch: function (success, error) {
+    argscheck.checkArgs('FF', 'analytics.dispatch', arguments);
+    exec(success, error, 'GoogleAnalytics', 'dispatch', []);
+  },
 
   setDispatchInterval: function (seconds, success, error) {
     argscheck.checkArgs('nFF', 'analytics.setDispatchInterval', arguments);
